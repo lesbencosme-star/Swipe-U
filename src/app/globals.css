@@ -3,11 +3,19 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #D4AF37; /* Gold color */
+  --primary-dark: #A08623;
+  --primary-light: #F2E6B6;
+  --accent: #000000;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-primary-light: var(--primary-light);
+  --color-accent: var(--accent);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -16,11 +24,71 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --primary: #D4AF37; /* Gold stays the same */
+    --primary-dark: #A08623;
+    --primary-light: #F2E6B6;
+    --accent: #ffffff;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans, Arial, Helvetica, sans-serif);
+}
+
+/* Paw print button animation */
+.paw-button:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease;
+}
+
+/* Bone superlike animation */
+@keyframes wiggle {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  50% { transform: rotate(0deg); }
+  75% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.bone-button:hover {
+  animation: wiggle 0.5s ease;
+}
+
+/* Match Confirmation Animations */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scale-in {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fall {
+  0% { 
+    transform: translateY(-100vh);
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% { 
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.animate-fall {
+  animation: fall 3s linear forwards;
 }

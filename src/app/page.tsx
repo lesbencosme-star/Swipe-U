@@ -1,102 +1,93 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen flex flex-col">
+      {/* Hero Section */}
+      <main className="flex-1 flex flex-col items-center justify-center p-8 text-center">
+        <div className="max-w-4xl mx-auto">
+          {/* Logo placeholder - replace with actual logo */}
+          <div className="mb-6 relative w-48 h-48 mx-auto">
+            <div className="absolute inset-0 bg-[var(--primary)] rounded-full opacity-20 animate-pulse"></div>
+            <h1 className="text-6xl font-bold relative z-10 pt-16">
+              <span className="text-[var(--foreground)]">Swipe</span>
+              <span className="text-[var(--primary)]">U</span>
+            </h1>
+          </div>
+          
+          <h2 className="text-2xl md:text-3xl font-semibold mb-6">
+            College Connections Made Simple
+          </h2>
+          
+          <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto">
+            Find relationships, friendships, roommates, or study buddies.
+            Built by students, for students.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link 
+              href="/auth/signup" 
+              className="paw-button bg-[var(--primary)] text-white px-8 py-3 rounded-full font-medium text-lg shadow-md hover:shadow-lg flex items-center justify-center"
+            >
+              <span>Get Started</span>
+              <span className="ml-2">🐾</span>
+            </Link>
+            
+            <Link 
+              href="/auth/login" 
+              className="border border-[var(--primary)] text-[var(--foreground)] px-8 py-3 rounded-full font-medium text-lg hover:bg-[var(--primary-light)] hover:text-[var(--accent)]"
+            >
+              Login
+            </Link>
+          </div>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      
+      {/* Features Section */}
+      <section className="py-16 bg-[var(--primary-light)] dark:bg-[var(--accent)]">
+        <div className="max-w-6xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">
+            <span className="text-[var(--primary)]">How SwipeU Works</span>
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Feature 1 */}
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+              <div className="w-16 h-16 bg-[var(--primary)] rounded-full flex items-center justify-center mb-4 mx-auto">
+                <span className="text-2xl">👤</span>
+              </div>
+              <h3 className="text-xl font-semibold text-center mb-2">Create Your Profile</h3>
+              <p className="text-center">Share your interests, major, class year, and what you're looking for.</p>
+            </div>
+            
+            {/* Feature 2 */}
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+              <div className="w-16 h-16 bg-[var(--primary)] rounded-full flex items-center justify-center mb-4 mx-auto">
+                <span className="text-2xl">🐾</span>
+              </div>
+              <h3 className="text-xl font-semibold text-center mb-2">Find Your Match</h3>
+              <p className="text-center">Swipe, like, or superlike to find your perfect connection on campus.</p>
+            </div>
+            
+            {/* Feature 3 */}
+            <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
+              <div className="w-16 h-16 bg-[var(--primary)] rounded-full flex items-center justify-center mb-4 mx-auto">
+                <span className="text-2xl">💬</span>
+              </div>
+              <h3 className="text-xl font-semibold text-center mb-2">Connect</h3>
+              <p className="text-center">Message your matches and build meaningful campus connections.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* Footer */}
+      <footer className="bg-[var(--accent)] text-white py-8">
+        <div className="max-w-6xl mx-auto px-4 text-center">
+          <p className="mb-2">© 2024 SwipeU - All Rights Reserved</p>
+          <p className="text-sm">Created with 🐾 for college students</p>
+        </div>
       </footer>
     </div>
   );
